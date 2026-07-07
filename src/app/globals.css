@@ -74,6 +74,26 @@ section[id] {
   scroll-margin-top: 84px;
 }
 
+/* cursor spotlight over the hero — follows the mouse */
+.hero-spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    520px circle at var(--spot-x, 50%) var(--spot-y, 35%),
+    rgba(139, 92, 246, 0.16),
+    transparent 65%
+  );
+}
+html.light .hero-spotlight {
+  background: radial-gradient(
+    520px circle at var(--spot-x, 50%) var(--spot-y, 35%),
+    rgba(99, 102, 241, 0.1),
+    transparent 65%
+  );
+}
+
 /* soft focal backdrop that lifts hero text off the busy sky */
 .hero-focus {
   position: absolute;
@@ -119,6 +139,26 @@ body {
   transform: translateY(-4px);
 }
 
+/* Light theme: bright cyan is nearly invisible on cream — deepen every
+   cyan accent + hover so interaction states actually read. */
+html.light .text-aurora-cyan {
+  color: #0e7490;
+}
+html.light .hover\:text-aurora-cyan:hover {
+  color: #155e75;
+}
+html.light .hover\:text-star:hover {
+  color: #0b1440;
+}
+html.light .glass-hover:hover {
+  border-color: rgba(79, 70, 229, 0.6);
+  box-shadow: 0 10px 32px -10px rgba(79, 70, 229, 0.4);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.72));
+}
+html.light .hover\:border-aurora-cyan\/50:hover {
+  border-color: rgba(14, 116, 144, 0.5);
+}
+
 .chip {
   background: var(--chip-bg);
 }
@@ -151,6 +191,85 @@ html.dark .text-gradient {
 }
 html.light .hero-glow {
   text-shadow: 0 2px 24px rgba(255, 255, 255, 0.6);
+}
+
+/* ---------- Code typer (hero) ---------- */
+.tok-kw { color: #c4b5fd; }
+.tok-str { color: #5eead4; }
+.tok-fn { color: #67e8f9; }
+.tok-num { color: #f9a8d4; }
+.tok-cm { color: var(--c-muted); font-style: italic; }
+html.light .tok-kw { color: #6d28d9; }
+html.light .tok-str { color: #0f766e; }
+html.light .tok-fn { color: #0e7490; }
+html.light .tok-num { color: #be185d; }
+
+.code-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  vertical-align: -0.15em;
+  margin-left: 1px;
+  background: var(--c-tag);
+  animation: caret-blink 1.05s steps(1) infinite;
+}
+@keyframes caret-blink {
+  50% { opacity: 0; }
+}
+
+/* ---------- Click ripple (water) ---------- */
+.ripple {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+/* Soft and low-contrast on purpose — real water doesn't glow.
+   Rings decelerate as they spread (ease-out) and blur slightly,
+   like a drop dispersing on a still pond. */
+.ripple-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border-radius: 9999px;
+  border: 2px solid var(--ripple-color);
+  filter: blur(0.4px);
+  opacity: 0;
+  transform: scale(0);
+  animation: ripple-ring 1.3s cubic-bezier(0.1, 0.55, 0.25, 1) forwards;
+}
+.ripple-splash {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 80px;
+  height: 80px;
+  margin: -40px 0 0 -40px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, var(--ripple-glow), transparent 65%);
+  filter: blur(2px);
+  opacity: 0;
+  transform: scale(0);
+  animation: ripple-splash 0.7s ease-out forwards;
+}
+:root,
+html.dark {
+  --ripple-color: rgba(225, 240, 255, 0.75);
+  --ripple-glow: rgba(200, 220, 255, 0.3);
+}
+html.light {
+  --ripple-color: rgba(40, 60, 120, 0.55);
+  --ripple-glow: rgba(60, 80, 140, 0.22);
+}
+@keyframes ripple-ring {
+  0% { transform: scale(0.08); opacity: 0; }
+  12% { opacity: 0.9; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+@keyframes ripple-splash {
+  0% { transform: scale(0.15); opacity: 0.6; }
+  100% { transform: scale(1.4); opacity: 0; }
 }
 
 /* ---------- Animations ---------- */
