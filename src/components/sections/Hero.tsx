@@ -25,7 +25,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-screen flex-col justify-center px-5 pt-28 pb-20"
+      className="relative flex min-h-screen flex-col justify-center px-5 pt-24 pb-16 sm:pt-28 sm:pb-20"
       onMouseMove={(e) => {
         spot.current?.style.setProperty("--spot-x", `${e.clientX}px`);
         spot.current?.style.setProperty("--spot-y", `${e.clientY}px`);
@@ -41,9 +41,9 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="glass mb-6 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs text-[var(--color-muted)]"
+            className="glass mb-6 inline-flex max-w-full items-center gap-2 rounded-full px-4 py-1.5 text-center text-[11px] leading-snug text-[var(--color-muted)] sm:text-xs"
           >
-            <span className="relative flex h-2 w-2">
+            <span className="relative flex h-2 w-2 shrink-0">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-aurora-teal opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-aurora-teal" />
             </span>
@@ -54,7 +54,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="hero-glow font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
+            className="hero-glow font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
           >
             {profile.name.split(" ")[0]}{" "}
             <span className="text-gradient">{profile.name.split(" ")[1]}</span>
@@ -89,7 +89,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start"
+            className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:justify-center lg:justify-start [&>*]:w-full [&>*]:justify-center sm:[&>*]:w-auto"
           >
             <a
               href="#projects"
@@ -152,16 +152,9 @@ export default function Hero() {
             click it — it changes its mind
           </p>
         </motion.div>
-
-        {/* mobile: smaller crystal below the pitch */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.9, delay: 0.4 }}
-          className="lg:hidden"
-        >
-          <HeroScene />
-        </motion.div>
+        {/* The 3D crystal is desktop-only — on phones it's a second heavy
+            WebGL canvas and a lot of extra scroll, so the hero ends on the
+            live code editor instead. */}
       </div>
 
       <motion.a

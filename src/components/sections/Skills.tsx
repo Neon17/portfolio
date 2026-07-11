@@ -13,7 +13,7 @@ const levelColor: Record<string, string> = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative mx-auto max-w-6xl px-5 py-24">
+    <section id="skills" className="relative mx-auto max-w-6xl px-5 py-16 sm:py-24">
       <SectionHeading
         tag="02 — Skills"
         title="The stack I build with"

@@ -92,7 +92,7 @@ function LeetRing() {
 
 export default function About() {
   return (
-    <section id="about" className="relative mx-auto max-w-6xl px-5 py-24">
+    <section id="about" className="relative mx-auto max-w-6xl px-5 py-16 sm:py-24">
       <div className="grid gap-12 md:grid-cols-2 md:items-center">
         <div>
           <span className="section-tag">01 — About</span>

@@ -19,7 +19,7 @@ export default function Projects() {
   }, [filter]);
 
   return (
-    <section id="projects" className="relative mx-auto max-w-6xl px-5 py-24">
+    <section id="projects" className="relative mx-auto max-w-6xl px-5 py-16 sm:py-24">
       <SectionHeading
         tag="04 — Projects"
         title="Things I've built"

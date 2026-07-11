@@ -4,6 +4,7 @@ import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { useTheme } from "@/components/ThemeProvider";
+import { useIsMobile } from "@/lib/useIsMobile";
 
 function makeStarTexture() {
   const size = 64;
@@ -127,12 +128,15 @@ function ShootingStar({ light }: { light: boolean }) {
   );
 }
 
-function Scene({ light }: { light: boolean }) {
+function Scene({ light, mobile }: { light: boolean; mobile: boolean }) {
   const texture = useMemo(() => makeStarTexture(), []);
+  // Phones get ~40% of the stars — the sky still reads full but stays smooth.
+  const far = mobile ? 620 : 1500;
+  const near = mobile ? 300 : 700;
   return (
     <>
-      <StarLayer count={1500} radius={30} size={light ? 0.22 : 0.26} speed={0.012} hueShift={0} texture={texture} light={light} />
-      <StarLayer count={700} radius={16} size={light ? 0.4 : 0.46} speed={0.03} hueShift={0.25} texture={texture} light={light} />
+      <StarLayer count={far} radius={30} size={light ? 0.22 : 0.26} speed={0.012} hueShift={0} texture={texture} light={light} />
+      <StarLayer count={near} radius={16} size={light ? 0.4 : 0.46} speed={0.03} hueShift={0.25} texture={texture} light={light} />
       <ShootingStar light={light} />
     </>
   );
@@ -140,6 +144,7 @@ function Scene({ light }: { light: boolean }) {
 
 export default function Starfield() {
   const { theme } = useTheme();
+  const mobile = useIsMobile();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
@@ -151,10 +156,10 @@ export default function Starfield() {
         <Canvas
           key={theme} /* rebuild materials (blending) on theme change */
           camera={{ position: [0, 0, 1], fov: 75 }}
-          gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
-          dpr={[1, 1.8]}
+          gl={{ antialias: !mobile, alpha: true, powerPreference: "high-performance" }}
+          dpr={mobile ? [1, 1.5] : [1, 1.8]}
         >
-          <Scene light={light} />
+          <Scene light={light} mobile={mobile} />
         </Canvas>
       </div>
       <div className="sky-scrim" />

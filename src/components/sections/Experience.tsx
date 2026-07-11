@@ -6,7 +6,7 @@ import { BadgeCheck, Briefcase } from "lucide-react";
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative mx-auto max-w-5xl px-5 py-24">
+    <section id="experience" className="relative mx-auto max-w-5xl px-5 py-16 sm:py-24">
       <SectionHeading
         tag="03 — Experience"
         title="Where I've shipped"

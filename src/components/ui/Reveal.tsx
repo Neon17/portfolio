@@ -48,7 +48,7 @@ export function SectionHeading({
   subtitle?: string;
 }) {
   return (
-    <div className="mb-12 max-w-2xl">
+    <div className="mb-10 max-w-2xl sm:mb-12">
       <Reveal>
         <span className="section-tag">{tag}</span>
       </Reveal>

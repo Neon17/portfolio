@@ -17,7 +17,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative mx-auto max-w-4xl px-5 py-24">
+    <section id="contact" className="relative mx-auto max-w-4xl px-5 py-16 sm:py-24">
       <div className="glass rounded-3xl p-8 text-center sm:p-14">
         <Reveal>
           <span className="section-tag">06 — Contact</span>

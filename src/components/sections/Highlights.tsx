@@ -13,7 +13,7 @@ const icons = {
 
 export default function Highlights() {
   return (
-    <section id="achievements" className="relative mx-auto max-w-6xl px-5 py-24">
+    <section id="achievements" className="relative mx-auto max-w-6xl px-5 py-16 sm:py-24">
       <SectionHeading
         tag="05 — Achievements & Education"
         title="Beyond the code"

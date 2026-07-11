@@ -10,6 +10,7 @@ import { Float, Sparkles } from "@react-three/drei";
 import * as THREE from "three";
 import { ChevronLeft, ChevronRight, MousePointerClick, Hand, Sparkles as SparklesIcon } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
+import { useIsMobile } from "@/lib/useIsMobile";
 import { Reveal, SectionHeading } from "@/components/ui/Reveal";
 
 /* ------------------------------------------------------------------ */
@@ -281,12 +282,14 @@ type BurstData = { id: number; position: THREE.Vector3; color: string };
 function Scene({
   focus,
   light,
+  mobile,
   spin,
   onSelect,
   onPopped,
 }: {
   focus: number;
   light: boolean;
+  mobile: boolean;
   spin: React.MutableRefObject<Spin>;
   onSelect: (i: number) => void;
   onPopped: () => void;
@@ -353,7 +356,7 @@ function Scene({
       </group>
 
       <Sparkles
-        count={90}
+        count={mobile ? 36 : 90}
         scale={[13, 7, 6]}
         size={2.2}
         speed={0.35}
@@ -393,6 +396,7 @@ function Scene({
 /* ------------------------------------------------------------------ */
 export default function Playground() {
   const { theme } = useTheme();
+  const mobile = useIsMobile();
   const [mounted, setMounted] = useState(false);
   const [focus, setFocus] = useState(0);
   const [pops, setPops] = useState(0);
@@ -426,7 +430,7 @@ export default function Playground() {
   };
 
   return (
-    <section id="lab" className="relative mx-auto max-w-6xl px-5 py-24">
+    <section id="lab" className="relative mx-auto max-w-6xl px-5 py-16 sm:py-24">
       <SectionHeading
         tag="06 — 3D Lab"
         title="A little corner to play in"
@@ -435,7 +439,7 @@ export default function Playground() {
 
       <Reveal>
         <div
-          className="glass relative h-[420px] touch-pan-y select-none overflow-hidden rounded-3xl sm:h-[500px]"
+          className="glass relative h-[380px] touch-pan-y select-none overflow-hidden rounded-3xl sm:h-[500px]"
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
           onPointerUp={onPointerUp}
@@ -445,12 +449,13 @@ export default function Playground() {
             <Canvas
               key={theme} /* rebuild materials on theme change */
               camera={{ position: [0, 0, 6.2], fov: 45 }}
-              gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
-              dpr={[1, 1.8]}
+              gl={{ antialias: !mobile, alpha: true, powerPreference: "high-performance" }}
+              dpr={mobile ? [1, 1.5] : [1, 1.8]}
             >
               <Scene
                 focus={focus}
                 light={light}
+                mobile={mobile}
                 spin={spin}
                 onSelect={setFocus}
                 onPopped={() => setPops((p) => p + 1)}
