@@ -103,24 +103,27 @@ export default function About() {
           </Reveal>
           <Reveal i={2}>
             <p className="mt-5 leading-relaxed text-[var(--color-muted)]">
-              I&apos;m a backend-leaning full-stack developer from Pokhara, Nepal.
-              Across two internships I&apos;ve shipped real production features —
-              payment flows with rollback safety, search that went from{" "}
-              <span className="text-star">24s to 2-3s</span>, and a multi-vendor
-              marketplace with subdomain multi-tenancy.
+              I&apos;m a backend-focused full-stack developer from Pokhara, Nepal.
+              With 10+ months of production engineering experience across three companies
+              (currently Full Stack Engineer at Nep Tech Pal), I&apos;ve shipped real
+              production features — Australian NDIS compliance platforms, payment flows
+              with rollback safety, search that went from{" "}
+              <span className="text-star">24s to 2-3s</span> on a 2.3GB dataset, and
+              a multi-vendor marketplace with subdomain multi-tenancy.
             </p>
           </Reveal>
           <Reveal i={3}>
             <p className="mt-4 leading-relaxed text-[var(--color-muted)]">
-              I&apos;m most at home in Laravel and Django, currently going deeper
-              into system design and machine learning. I&apos;m not a designer —
-              I&apos;m the person who makes sure the API is fast, correct, and
-              won&apos;t fall over. I love a good problem to solve.
+              I&apos;m most at home in Django, Laravel, and Next.js / TypeScript,
+              currently going deeper into distributed architecture and system design.
+              I&apos;m not a designer — I&apos;m the person who makes sure the backend
+              is fast, correct, and won&apos;t fall over under load. I love a good
+              problem to solve.
             </p>
           </Reveal>
           <Reveal i={4}>
             <div className="mt-6 flex flex-wrap gap-2">
-              {["Problem Solver", "Clean Code", "Real-World APIs", "System Design (learning)"].map(
+              {["Problem Solver (285 LeetCode)", "Clean Code", "Real-World APIs", "System Design"].map(
                 (t) => (
                   <span
                     key={t}
