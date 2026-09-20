@@ -68,7 +68,7 @@ export const profile = {
   ],
   // Professional summary — tuned for ATS keyword matching + human punch.
   summary:
-    "Backend-focused Full Stack Developer with 6+ months of internship experience (two companies) shipping production features on real Laravel and Django codebases. Built payment integrations (eSewa, Khalti, RevenueCat) with rollback safety, cut search latency from 24s to 2-3s with Meilisearch on a 2.3GB dataset, and architected a subdomain-based multi-vendor marketplace on Django REST + React. Contributed 5+ merged PRs to an open-source Laravel/Filament package. Strong problem-solver (285 LeetCode solved — 203 Medium, 45 Hard · 100 Days Badge). Passionate about clean code, real-world APIs, and system design.",
+    "Backend-focused Full Stack Developer with 10+ months of production engineering experience across three companies (currently Full Stack Engineer at Nep Tech Pal) shipping features on real Django, Laravel, and Next.js codebases. Built payment integrations (eSewa, Khalti, RevenueCat) with rollback safety, cut search latency from 24s to 2-3s with Meilisearch on a 2.3GB dataset, and architected a subdomain-based multi-vendor marketplace on Django REST + React. Contributed 5+ merged PRs to an open-source Laravel/Filament package. Strong problem-solver (285 LeetCode solved — 203 Medium, 45 Hard · 100 Days Badge). Passionate about clean code, real-world APIs, and system design.",
 
   location: "Pokhara, Nepal",
   availability: "Open to backend & full-stack roles (remote / Nepal)",
@@ -97,7 +97,7 @@ export const stats = [
   { label: "LeetCode Solved", value: 285, suffix: "" },
   { label: "GitHub Contributions / yr", value: 2200, suffix: "+" },
   { label: "Merged OSS PRs", value: 5, suffix: "+" },
-  { label: "Months Interning", value: 6, suffix: "+" },
+  { label: "Months Interning", value: 10, suffix: "+" },
 ];
 
 export const leetcode = {
@@ -112,6 +112,21 @@ export const leetcode = {
 // EXPERIENCE (reverse-chronological — most recent first, ATS standard)
 // ----------------------------------------------------------------------------
 export const experiences: Experience[] = [
+  {
+    role: "Full Stack Engineer",
+    company: "Nep Tech Pal Pvt Ltd",
+    location: "Pokhara, Nepal",
+    start: "May 2026",
+    end: "Present",
+    summary:
+      "Engineering an enterprise NDIS service-delivery platform in Django REST and Next.js for an Australian disability care provider.",
+    highlights: [
+      "Architected backend REST APIs in Django REST Framework consumed by a Next.js provider portal for participant and plan management.",
+      "Engineered granular Role-Based Access Control (RBAC) and immutable audit logging for sensitive clinical and participant records.",
+      "Designed automated invoicing and claim-export pipelines adhering to Australian NDIS price-guide compliance with 100% calculation accuracy.",
+    ],
+    stack: ["Django", "Django REST Framework", "Python", "Next.js", "React", "TypeScript", "PostgreSQL", "RBAC", "Git"],
+  },
   {
     role: "Full Stack Developer Intern — Backend",
     company: "Firefly IT Solutions Pvt. Ltd.",

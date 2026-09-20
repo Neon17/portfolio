@@ -10,7 +10,7 @@ export default function Experience() {
       <SectionHeading
         tag="03 — Experience"
         title="Where I've shipped"
-        subtitle="6+ months across two companies — writing backend code that reached real users."
+        subtitle="10+ months across three companies — writing backend and full-stack code that reached real users."
       />
 
       <div className="relative">
