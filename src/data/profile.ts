@@ -63,12 +63,12 @@ export const profile = {
   taglines: [
     "I build production backends that survive real users.",
     "Laravel · Django · React — payments, search, multi-tenancy.",
-    "134 → 145 LeetCode. Clean code. Real-world APIs.",
+    "285 LeetCode Solved. Clean code. Real-world APIs.",
     "Backend heart, full-stack reach.",
   ],
   // Professional summary — tuned for ATS keyword matching + human punch.
   summary:
-    "Backend-focused Full Stack Developer with 6+ months of internship experience (two companies) shipping production features on real Laravel and Django codebases. Built payment integrations (eSewa, Khalti, RevenueCat) with rollback safety, cut search latency from 24s to 2-3s with Meilisearch on a 2.3GB dataset, and architected a subdomain-based multi-vendor marketplace on Django REST + React. Contributed 5+ merged PRs to an open-source Laravel/Filament package. Strong problem-solver (145 LeetCode solved — 99 Medium, 21 Hard). Passionate about clean code, real-world APIs, and system design.",
+    "Backend-focused Full Stack Developer with 6+ months of internship experience (two companies) shipping production features on real Laravel and Django codebases. Built payment integrations (eSewa, Khalti, RevenueCat) with rollback safety, cut search latency from 24s to 2-3s with Meilisearch on a 2.3GB dataset, and architected a subdomain-based multi-vendor marketplace on Django REST + React. Contributed 5+ merged PRs to an open-source Laravel/Filament package. Strong problem-solver (285 LeetCode solved — 203 Medium, 45 Hard · 100 Days Badge). Passionate about clean code, real-world APIs, and system design.",
 
   location: "Pokhara, Nepal",
   availability: "Open to backend & full-stack roles (remote / Nepal)",
@@ -94,17 +94,17 @@ export const profile = {
 // LIVE STATS (also render as animated counters on the site)
 // ----------------------------------------------------------------------------
 export const stats = [
-  { label: "LeetCode Solved", value: 145, suffix: "" },
-  { label: "GitHub Contributions / yr", value: 1000, suffix: "+" },
+  { label: "LeetCode Solved", value: 285, suffix: "" },
+  { label: "GitHub Contributions / yr", value: 2200, suffix: "+" },
   { label: "Merged OSS PRs", value: 5, suffix: "+" },
   { label: "Months Interning", value: 6, suffix: "+" },
 ];
 
 export const leetcode = {
-  total: 145,
-  easy: 25,
-  medium: 99,
-  hard: 21,
+  total: 285,
+  easy: 37,
+  medium: 203,
+  hard: 45,
   handle: "learninglad123",
 };
 
@@ -381,15 +381,15 @@ export const achievements: Achievement[] = [
     icon: "git",
   },
   {
-    title: "145 LeetCode Problems Solved",
+    title: "285 LeetCode Problems Solved",
     detail:
-      "99 Medium and 21 Hard problems solved (@learninglad123) — consistent DSA practice in C++.",
+      "203 Medium and 45 Hard problems solved (@learninglad123, 100 Days Badge) — consistent DSA practice in C++.",
     icon: "code",
   },
   {
-    title: "1,000+ GitHub Contributions",
+    title: "2,200+ GitHub Contributions",
     detail:
-      "Over 1,000 contributions in the last year across 30+ personal repositories — a daily building habit.",
+      "Over 2,270 contributions in the last year across 35+ repositories — a daily building habit.",
     icon: "spark",
   },
   {
@@ -408,7 +408,7 @@ export const interests = [
   { label: "System Design", note: "Actively learning" },
   { label: "Machine Learning", note: "PyTorch, self-study" },
   { label: "Open Source", note: "Laravel / Filament" },
-  { label: "Problem Solving", note: "145 LeetCode" },
+  { label: "Problem Solving", note: "285 LeetCode" },
 ];
 
 // A short, honest note on the journey — growth story recruiters love.
